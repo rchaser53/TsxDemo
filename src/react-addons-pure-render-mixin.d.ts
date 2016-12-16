@@ -1,0 +1,1 @@
+declare module 'react-addons-pure-render-mixin'

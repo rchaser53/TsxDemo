@@ -1,0 +1,41 @@
+.objectHeader {
+	display: flex;
+	width: 500px;
+	font-weight: bold;
+	text-align:center;
+	background-color: aqua;
+}
+
+.objectHeaderFirstData{
+	display: block;
+	width: 50%;
+	border: solid 1px black;
+}
+
+.objectHeaderSecondData{
+	display: block;
+	width: 50%;
+	border-style: solid;
+	border-width: 1px 1px 1px 0px;
+}
+
+.objectRowWrapper {
+	display: flex;
+	width: 500px;
+}
+
+.objectRowFirstData {
+	display: block;
+	width: 50%;
+	word-wrap: break-word;
+	border-style: solid;
+	border-width: 0px 0px 1px 1px;
+}
+
+.objectRowSecondData {
+	display: block;
+	width: 50%;
+	word-wrap: break-word;
+	border-style: solid;
+	border-width: 0px 1px 1px 1px;
+}
