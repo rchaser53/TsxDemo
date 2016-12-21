@@ -51,7 +51,7 @@ export class Apps extends React.Component<Props, {}> {
 	}
 
 	componentDidMount() {
-		this.changeObject('Account')
+		// this.changeObject('Account')
 	}
 
 	changeObject(objectName: string) {
@@ -63,7 +63,7 @@ export class Apps extends React.Component<Props, {}> {
 		this.changeObject(event.target.value)
 	}
 
-  	render() {
+	render() {
 		const { objectName, fields } = this.props
 		return (
 			<div>
