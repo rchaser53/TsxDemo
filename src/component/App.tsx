@@ -69,6 +69,7 @@ export class Apps extends React.Component<Props, {}> {
 			<div>
 				<SelectObject selectObject={this.selectObject} />
 				<OutputArea objectName={objectName} fields={fields} />
+				{ this.props.children }
 			</div>
 		)
 	}
