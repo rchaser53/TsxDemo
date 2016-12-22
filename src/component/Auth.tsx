@@ -16,8 +16,26 @@ export interface Props {
 }
 
 export class Auth extends React.Component<Props, {}> {
-	componentDidMount() {
-		conn.login(loginId, password, (err) => {
+	constructor() {
+		super()
+		this.saveLoginId = this.saveLoginId.bind(this)
+		this.saveLoginId = this.saveLoginId.bind(this)
+		this.loginSF = this.loginSF.bind(this)
+	}
+
+	loginIdInput: HTMLInputElement
+	passwordInput: HTMLInputElement
+
+	saveLoginId(event) {
+		console.log(event.target.value)
+	}
+
+	savePassword(event) {
+		console.log(event.target.value)
+	}
+
+	loginSF() {
+		conn.login(this.loginIdInput.value, this.passwordInput.value, (err) => {
 			if (err) {
 					throw new Error(JSON.stringify(err))
 			}
@@ -26,7 +44,11 @@ export class Auth extends React.Component<Props, {}> {
 	}
 
 	render() {
-		return <div>loading</div>
+		return 	<div>
+							<div>Login Id<input ref={(elem) => {this.loginIdInput = elem}} onChange={this.saveLoginId} /></div>
+							<div>Pass Word<input ref={(elem) => {this.passwordInput = elem}} onChange={this.saveLoginId} /></div>
+							<button onClick={this.loginSF}>login</button>
+						</div>
 	}
 }
 export default Auth
