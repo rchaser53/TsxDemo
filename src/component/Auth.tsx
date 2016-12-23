@@ -7,15 +7,18 @@ const {
 	loginId, password
 } = require('../../env')
 
-const conn = new Connection({
-								proxyUrl: 'http://localhost:3000/proxy'
-							})
-
 export interface Props {
 	router: InjectedRouter
 }
 
 export class Auth extends React.Component<Props, {}> {
+	context: {
+		conn: Connection
+	}
+	static contextTypes = {
+		conn: React.PropTypes.any
+	}
+
 	constructor() {
 		super()
 		this.saveLoginId = this.saveLoginId.bind(this)
@@ -35,11 +38,11 @@ export class Auth extends React.Component<Props, {}> {
 	}
 
 	loginSF() {
-		conn.login(this.loginIdInput.value, this.passwordInput.value, (err) => {
+		this.context.conn.login(this.loginIdInput.value, this.passwordInput.value, (err) => {
 			if (err) {
 					throw new Error(JSON.stringify(err))
 			}
-			this.props.router.replace('nyon')
+			this.props.router.replace('/field')
 		})
 	}
 

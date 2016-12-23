@@ -8,11 +8,12 @@ import { State } from './reducer/reducer'
 
 import App from './component/App'
 import Auth from './component/Auth'
-import Nyon from './component/Nyon'
+import FieldArea from './component/FieldArea'
+import OutputArea from './component/OutputArea'
+
 import { Store, createStore } from 'redux'
 import reducer from './reducer/reducer'
-
-const store = createStore(reducer)
+import store from './store'
 
 const conn = new Connection({
 								proxyUrl: 'http://localhost:3000/proxy'
@@ -22,8 +23,15 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App dispatch={store.dispatch} conn={conn}>
 			<Router history={browserHistory}>
-				<Route path='/' component={Auth} />
-				<Route path='/nyon' component={Nyon} />
+				<Route path='/' onEnter={(nextState, replace) => {
+						if (conn.userInfo === undefined) {
+							console.log(nextState)
+							replace('/auth')
+						}
+				}}>
+					<Route path='field' component={FieldArea} />
+				</Route>
+				<Route path='/auth' component={Auth} />
 			</Router>
 		</App>
 	</Provider>, document.querySelector('#root')

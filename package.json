@@ -24,6 +24,7 @@
     "react-redux": "5.0.1",
     "react-router": "3.0.0",
     "redux": "^3.6.0",
+    "redux-saga": "0.13.0",
     "source-map-loader": "0.1.5",
     "stack-source-map": "1.0.6",
     "style-loader": "^0.13.1",
@@ -31,7 +32,7 @@
     "tslint": "^4.0.2",
     "tslint-loader": "^3.2.1",
     "typescript": "2.1.4",
-    "webpack": "^1.13.3",
+    "webpack": "1.14.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
   },

@@ -16,8 +16,12 @@ export const sobject = {
 }
 
 export default (state: SObject = sobject, action: Action): SObject => {
-	if (isFECTH_NEW_SOBJECT(action)) {
-		return { ...state, objectName: action.payload.objectName, fields: action.payload.fields}
+	// if (isFECTH_NEW_SOBJECT(action)) {
+	// 	return { ...state, objectName: action.payload.objectName, fields: action.payload.fields}
+	// }
+
+	if (action.type === 'PPP') {
+		console.log('ppp')
 	}
 
 	return state
