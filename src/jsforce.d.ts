@@ -8,6 +8,11 @@ declare module "jsforce" {
 	export interface Connection {
 		login: (loginId: string, password: string, callback: (err: any, res: any) => void) => void;
 		sobject: (objectName: string) => { describe: (callback: (err: any, res: SObject) => void) => void }
+		userInfo?: {
+			id: string
+			organizationId: string
+			url: string
+		}
 	}
 
 	export interface ChildRelationships {
